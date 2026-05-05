@@ -6,8 +6,7 @@ function AuditLogPage() {
   const [loading, setLoading] = useState(true);
   const [loadingEvaluation, setLoadingEvaluation] = useState(false);
   const [error, setError] = useState('');
-  const apiBase = 'http://localhost:5000';
-
+  const apiBase = 'https://your-backend-name.onrender.com';
   useEffect(() => {
     const fetchHistory = async () => {
       setLoading(true);

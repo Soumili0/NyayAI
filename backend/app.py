@@ -30,7 +30,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # SQLite DB config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nyayai.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://nyay-ai-project.vercel.app"}})
 db = SQLAlchemy(app)
 Swagger(app)
 

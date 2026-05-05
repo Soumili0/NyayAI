@@ -42,7 +42,7 @@ function HistoryPage({ history, loading, onLoad, onRefresh }) {
 
     for (const id of selectedIds) {
       try {
-        await fetch(`http://localhost:5000/evaluation/${id}`, {
+        await fetch(`https://nyayai-codeforbharat.onrender.com/evaluation/${id}`, {
           method: 'DELETE',
         });
       } catch {
@@ -57,7 +57,7 @@ function HistoryPage({ history, loading, onLoad, onRefresh }) {
   const handleBulkDownload = () => {
     selectedIds.forEach((id) => {
       const link = document.createElement('a');
-      link.href = `http://localhost:5000/evaluation/${id}/audit/pdf`;
+      link.href = `https://nyayai-codeforbharat.onrender.com/evaluation/${id}/audit/pdf`;
       link.download = `audit_${id}.pdf`;
       link.click();
     });
@@ -480,7 +480,7 @@ function HistoryPage({ history, loading, onLoad, onRefresh }) {
                         const link =
                           document.createElement('a');
 
-                        link.href = `http://localhost:5000/evaluation/${item.evaluation_id}/audit/pdf`;
+                        link.href = `https://nyayai-codeforbharat.onrender.com/evaluation/${item.evaluation_id}/audit/pdf`;
 
                         link.download = `audit_${item.evaluation_id}.pdf`;
 
@@ -507,7 +507,7 @@ function HistoryPage({ history, loading, onLoad, onRefresh }) {
                         ) {
                           try {
                             const response = await fetch(
-                              `http://localhost:5000/evaluation/${item.evaluation_id}`,
+                              `https://nyayai-codeforbharat.onrender.com/evaluation/${item.evaluation_id}`,
                               {
                                 method: 'DELETE',
                               }

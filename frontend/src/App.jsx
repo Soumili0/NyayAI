@@ -22,7 +22,7 @@ function App() {
   const [isBusy, setIsBusy] = useState(false)
   const [error, setError] = useState('')
 
-  const apiBase = 'http://localhost:5000'
+  const apiBase = 'https://nyayai-codeforbharat.onrender.com'
 
   const fetchHistory = async () => {
     setIsHistoryLoading(true)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pie, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
 
@@ -8,13 +8,9 @@ function DashboardPage() {
   const [evaluations, setEvaluations] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchEvaluations();
-  }, []);
-
   const fetchEvaluations = async () => {
     try {
-      const response = await fetch('http://localhost:5000/evaluations');
+      const response = await fetch('https://nyayai-codeforbharat.onrender.com/evaluations');
       const data = await response.json();
       if (data.success) {
         setEvaluations(data.evaluations);
@@ -25,6 +21,10 @@ function DashboardPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchEvaluations();
+  }, []);
 
   if (loading) {
     return <div style={{ textAlign: 'center', padding: '2rem' }}>Loading dashboard...</div>;
@@ -91,7 +91,7 @@ function DashboardPage() {
           <button 
             onClick={() => {
               const link = document.createElement('a');
-              link.href = 'http://localhost:5000/summary/pdf';
+              link.href = 'https://nyayai-codeforbharat.onrender.com/summary/pdf';
               link.download = 'evaluation_summary.pdf';
               link.click();
             }}
